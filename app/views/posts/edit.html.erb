@@ -1,0 +1,5 @@
+<%= form_tag("/posts/#{@post.id}/recreate") do %>
+    <h1>投稿を編集</h1>
+    <textarea name="message" id="" cols="30" rows="10" ><%= @message %></textarea>
+    <input type="submit" value="入力">
+<% end %>

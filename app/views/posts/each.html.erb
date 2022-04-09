@@ -1,0 +1,6 @@
+<h1>メモ</h1>
+<h2><%= @post.message %></h2>
+<p>ユーザー名</p>
+<p><%= @post.user %></p>
+<%= button_to("投稿を編集", "/posts/#{@post.id}/edit", {method: "get"}) %>
+<%= button_to("投稿を削除", "/posts/#{@post.id}/destroy") %>

@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+    <% if post.user == session[:name] %>
+        <div>
+            <h3>メモ： <%= link_to(post.message, "/posts/#{post.id}") %></h3>
+            <p>ユーザー名： <%= post.user %></p>
+        </div>
+    <% end %>
+<% end %>

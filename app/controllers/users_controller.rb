@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   def login_form
   end
 
+  def new
+  end
+
   def login
       @user = User.new(name: params[:name], password: params[:password])
       session[:name] = @user.name
@@ -25,4 +28,16 @@ class UsersController < ApplicationController
       flash[:notice] = "ログアウトしました。"
       redirect_to("/")
   end
+
+  def relogin
+    @user = User.find_by(name: params[:name], password: params[:password])
+
+    if @user
+      session[:name] = @user.name
+      redirect_to("/")
+  else
+      render("/users/login_form")
+  end
+  end
+
 end
